@@ -1,50 +1,49 @@
-package ºÏ¸ùÖ²Îï;
-
+package åˆæ ¹æ¤ç‰©;
 import java.util.ArrayList;  
 import java.util.HashMap;  
 import java.util.Iterator;  
 import java.util.Scanner;  
 public class Main2 {  
     static Scanner scanf=new Scanner(System.in);  
-    static HashMap<Integer, Zw> hm=new HashMap<Integer,Zw>();       //hashmap¼üÖµ¶Ô²»ĞèÒª±éÀú  
-    static int count=0; //¼ÆÊı  
+    static HashMap<Integer, Zw> hm=new HashMap<Integer,Zw>();       //hashmapé”®å€¼å¯¹ä¸éœ€è¦éå†  
+    static int count=0; //è®¡æ•°  
     public static void main(String[] args) {  
-        int m=scanf.nextInt();  //ĞĞ  
-        int n=scanf.nextInt();      //ÁĞ  
+        int m=scanf.nextInt();  //è¡Œ  
+        int n=scanf.nextInt();      //åˆ—  
         for (int i = 0; i < m*n; i++) {  
             Zw zw=new Zw();  
-            hm.put(i+1, zw);        //¸øÃ¿¸ö·½¸ñÒ»¸ö±àºÅ  
+            hm.put(i+1, zw);        //ç»™æ¯ä¸ªæ–¹æ ¼ä¸€ä¸ªç¼–å·  
         }  
-        int k=scanf.nextInt();  //±ßÊı  
+        int k=scanf.nextInt();  //è¾¹æ•°  
         for (int i = 0; i < k; i++) {  
-            int start=scanf.nextInt();  //±ßµÄÆğµã    
-            int end=scanf.nextInt();        //±ßµÄÖÕµã  
-            Zw zw=hm.get(start);    //È¡³öÒ»¸öµã  
-            zw.to.add(end); //¸ø¸Ãµã¿É´ïµãÌí¼Ó½ø¼¯ºÏ  
-            Zw zw2=hm.get(end); //ÖØµã£¡ÇÃºÚ°å       
-            zw2.to.add(start);//µ±¸Ãµã±»¿É´ïÊ±Ò²Ìí¼Ó½ø£¬  ¼´ÓĞÏò¸ÄÎŞÏò  
+            int start=scanf.nextInt();  //è¾¹çš„èµ·ç‚¹    
+            int end=scanf.nextInt();        //è¾¹çš„ç»ˆç‚¹  
+            Zw zw=hm.get(start);    //å–å‡ºä¸€ä¸ªç‚¹  
+            zw.to.add(end); //ç»™è¯¥ç‚¹å¯è¾¾ç‚¹æ·»åŠ è¿›é›†åˆ  
+            Zw zw2=hm.get(end); //é‡ç‚¹ï¼æ•²é»‘æ¿       
+            zw2.to.add(start);//å½“è¯¥ç‚¹è¢«å¯è¾¾æ—¶ä¹Ÿæ·»åŠ è¿›ï¼Œ  å³æœ‰å‘æ”¹æ— å‘  
         }  
         for (int i = 1; i <=m*n; i++) {  
-            digui(i,true);  //µÚÒ»¸ö²ÎÊıÊÇ±éÀú£¬µÚ¶ş¸ö±íÊ¾ÊÇ×îÍâ²ãµİ¹é£¬×îºó¼ÆÊıÒª×öÅĞ¶Ï  
+            digui(i,true);  //ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯éå†ï¼Œç¬¬äºŒä¸ªè¡¨ç¤ºæ˜¯æœ€å¤–å±‚é€’å½’ï¼Œæœ€åè®¡æ•°è¦åšåˆ¤æ–­  
         }  
-        System.out.println(count);//´ğ°¸  
+        System.out.println(count);//ç­”æ¡ˆ  
     }  
     public static void digui(int i,boolean b){  
-        if(!hm.get(i).life){    //Èç¹û¸Ã¿éÃ»ÓĞ±»×ß¹ıÔÙ½øÈë  
-            hm.get(i).life=true;    //ÏÈÉèÎªtrue±íÊ¾±»×ß¹ı  
-            ArrayList<Integer> list=hm.get(i).to; //µÃµ½¸Ã¿é¿É´ïÂ·¾¶¼¯ºÏ£¨°üÀ¨±»¿É´ïÂ·¾¶£©  
-            Iterator<Integer> iterable= list.iterator();  //µü´ú  
-            while (iterable.hasNext()) {    //Èç¹ûÓĞ¿É´ïÂ·¾¶½øÈëÑ­»·  
-                int temp=iterable.next();   //µÃµ½¿É´ïµã  
-                    digui(temp,false);  //±éÀú¿É´ïÂ·¾¶µÄ¿É´ïÂ·¾¶  
+        if(!hm.get(i).life){    //å¦‚æœè¯¥å—æ²¡æœ‰è¢«èµ°è¿‡å†è¿›å…¥  
+            hm.get(i).life=true;    //å…ˆè®¾ä¸ºtrueè¡¨ç¤ºè¢«èµ°è¿‡  
+            ArrayList<Integer> list=hm.get(i).to; //å¾—åˆ°è¯¥å—å¯è¾¾è·¯å¾„é›†åˆï¼ˆåŒ…æ‹¬è¢«å¯è¾¾è·¯å¾„ï¼‰  
+            Iterator<Integer> iterable= list.iterator();  //è¿­ä»£  
+            while (iterable.hasNext()) {    //å¦‚æœæœ‰å¯è¾¾è·¯å¾„è¿›å…¥å¾ªç¯  
+                int temp=iterable.next();   //å¾—åˆ°å¯è¾¾ç‚¹  
+                    digui(temp,false);  //éå†å¯è¾¾è·¯å¾„çš„å¯è¾¾è·¯å¾„  
             }  
-            if(b){  //Èç¹ûÊÇ×îÍâ²ãÑ­»·½áÊø£¬¼´Ò»ÌõÂ·×ßÍê¡£  
+            if(b){  //å¦‚æœæ˜¯æœ€å¤–å±‚å¾ªç¯ç»“æŸï¼Œå³ä¸€æ¡è·¯èµ°å®Œã€‚  
                 count++;  
             }  
         }  
     }  
 }  
 class Zw{  
-    public ArrayList<Integer> to=new ArrayList<Integer>();  //¿É´ïÂ·¾¶¼¯ºÏ  
-    boolean life=false; //¸ÃµãÊÇ·ñ±»±éÀú¹ı  
-}  
+    public ArrayList<Integer> to=new ArrayList<Integer>();  //å¯è¾¾è·¯å¾„é›†åˆ  
+    boolean life=false; //è¯¥ç‚¹æ˜¯å¦è¢«éå†è¿‡  
+}    

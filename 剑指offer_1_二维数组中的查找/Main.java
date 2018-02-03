@@ -1,16 +1,26 @@
-package 剑指offer_1_二维数组中的查找;
+package 鍓戞寚offer_1_浜岀淮鏁扮粍涓殑鏌ユ壘;
 
 public class Main {
-    public static boolean Find(int target, int [][] array) {
-    	String str = array.toString();
-		return str.indexOf(""+target) == 1;
-    }
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int [][] a = {{1,2},{3}};
-		int b = 11;
-		System.out.println(a);
-		System.out.println(Find(b,a));
+	public static boolean find(int k,int arr[][]) {
+		int m = arr.length -1;
+		int n = arr[0].length;
+		int c = 0;
+		while(m >= 0 && c < n) {
+			System.out.println(arr[m][c]);
+			if(arr[m][c] > k)
+				m--;
+			else if(arr[m][c] < k)
+				c++;
+			else 
+				return true;
+		}
+		return false;
+		
 	}
 
+	public static void main(String args[]) {
+		int a[][] = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+		System.out.println(find(1,a));
+	}
 }
+//

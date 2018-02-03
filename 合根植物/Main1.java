@@ -1,11 +1,10 @@
-package 合根植物;
+package 鍚堟牴妞嶇墿;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main1 {
-	// 创建一个分类器，在模拟现实中的筛选，不过对数据要排序
-	// 依旧超时
+	//
 	public static ArrayList<ArrayList> arrayList;
 
 	public static void classify(int a, int b) {
