@@ -6,7 +6,7 @@ public class Main {
 		int n = arr[0].length;
 		int c = 0;
 		while(m >= 0 && c < n) {
-			System.out.println(arr[m][c]);
+			//System.out.println(arr[m][c]);
 			if(arr[m][c] > k)
 				m--;
 			else if(arr[m][c] < k)
